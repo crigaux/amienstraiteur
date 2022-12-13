@@ -1,0 +1,184 @@
+@font-face {
+    font-family: 'UnicaOne';
+    src: url('../fonts/UnicaOne/UnicaOne-Regular.ttf');
+}
+
+.containerButtonMenu {
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 2.5rem 0;
+}
+
+.containerButtonMenu a {
+    margin: 0rem .5rem;
+}
+
+h2 {
+    font-family: 'Dancing';
+    text-align: center;
+    color: var(--mediumBlue);
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-family: 'Dancing';
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'Montserrat';
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h3 {
+    font-size: 2.5rem;
+}
+
+.overlay h3 {
+    font-family: 'UnicaOne', Courier, monospace;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--mediumBlue);
+    margin: 1.5rem;
+    text-shadow: 2px 2px 2px black;
+}
+
+.menuLinks .connect {
+    display: flex;
+}
+
+.menuLinks .connect h3 {
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: none;
+    align-self: flex-end;
+    font-family: 'UnicaOne', Courier, monospace;
+}
+
+footer h2 {
+    color: white;
+}
+
+/*  ################################################################ 
+    ################ Design d'un élément de la carte ###############
+    ################################################################*/
+
+.dishesContainerMain {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foodCardContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 4rem 0.5rem 1.5rem 0;
+}
+
+.foodCardContainer .foodCard {
+    width: 275px;
+    margin: 0 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.foodCard .foodCardImg {
+    height: 250px;
+    width: 100%;
+}
+
+.foodCard .foodCardImg img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.foodCard .foodCardDesc h3 {
+    font-family: 'UnicaOne';
+    text-transform: uppercase;
+    color: var(--mediumBlue);
+    margin: 0.5rem 0;
+}
+
+.foodCard .foodCardDesc p {
+    text-align: center;
+    margin: 0 0.2rem;
+    font-size: 0.9rem;
+}
+
+section {
+    width: 100%;
+}
+
+.returnToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--mediumBlue);
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    z-index: 100;
+
+}
+
+.returnToTop a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.returnToTop a svg {
+    height: 30px;
+    color: var(--fontColorLight);
+}
+
+@media (min-width: 768px) {
+    header {
+        margin-bottom: 2rem;
+    }
+
+    header .menuLinksDesktop h3 {
+        font-family: 'UnicaOne', Courier, monospace;
+        font-size: 1.4rem;
+    }
+
+    /* header .menuLinksDesktop div a {
+        margin-right: 2rem;
+    } */
+
+    .foodCardContainer {
+        width: 100%;
+    }
+
+    .starter .foodCard,
+    .mainDishies .foodCard,
+    .dessert .foodCard {
+        width: 45%;
+    }
+
+    .starter .foodCard img,
+    .mainDishies .foodCard img,
+    .dessert .foodCard img {
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .starter .foodCard p,
+    .mainDishies .foodCard p,
+    .dessert .foodCard p {
+        width: 80%;
+        margin: 1rem 0 0 10%;
+    }
+}
