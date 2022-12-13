@@ -69,10 +69,9 @@
 			$pdo = Database::getInstance();
 
 			$query = 
-			"SELECT orders.id, orders.id_dishes, reservations.validated_at, users.lastname, users.phone, reservations.reservation_date, dishes.title, orders.quantity, dishes.price FROM `orders` 
+			"SELECT orders.id, orders.id_dishes, reservations.validated_at, reservations.lastname, reservations.phone, reservations.datetime, dishes.title, orders.quantity, dishes.price FROM `orders` 
 			INNER JOIN reservations ON orders.id_reservations = reservations.id
 			INNER JOIN dishes ON orders.id_dishes = dishes.id
-			INNER JOIN users ON reservations.id_users = users.id
 			WHERE reservations.id = :id;";
 
 			$sth = $pdo->prepare($query);
@@ -96,7 +95,6 @@
 			$query = 
 			"SELECT * FROM `orders` 
 			INNER JOIN reservations ON `orders`.`id_reservations` = `reservations`.`id` 
-			INNER JOIN users ON `reservations`.`id_users` = `users`.`id` 
 			WHERE `reservations`.`id` = :id;";
 
 			$sth = $pdo->prepare($query);

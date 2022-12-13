@@ -126,6 +126,8 @@ any('/getLastReviewsAjax', 'helpers/ajax/lastReviews.php');
 get('/jwtverif', 'controllers/JWTVerifCtrl.php');
 any('/modif-mdp', 'controllers/resetPwdCtrl.php');
 
+any('/demande-devis', 'controllers/orderFormCtrl.php');
+
 get('/cgu', 'controllers/cguCtrl.php');
 // Page not found
 any('/404','/404.php');

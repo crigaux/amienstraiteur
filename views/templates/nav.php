@@ -11,6 +11,8 @@
     <?= isset($isOnMenu) ? '<link rel="stylesheet" href="../../public/assets/css/menu.css">' : '' ; ?>
     <?= isset($isOnReview) ? '<link rel="stylesheet" href="../../public/assets/css/review.css">' : '' ; ?>
     <?= isset($isOnAccount) ? '<link rel="stylesheet" href="../../public/assets/css/account.css">' : '' ; ?>
+    <?= ($_SERVER['REQUEST_URI'] == '/demande-devis')  ? '<link rel="stylesheet" href="../../public/assets/css/orderForm.css">' : '' ; ?>
+
     <title>L'ADRESSE</title>
 </head>
 <body>

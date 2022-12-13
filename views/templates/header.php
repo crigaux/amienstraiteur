@@ -106,16 +106,8 @@
                 <div class="connect">
                     <?php
                     if (isset($_SESSION['user'])) {
-                        if ($_SESSION['user']->admin == 1) {
                     ?>
-                            <a href="/admin/menu"><button>DashBoard</button></a>
-                        <?php
-                        } else {
-                        ?>
-                            <a href="/profil"><button>Mon compte</button></a>
-                        <?php
-                        }
-                        ?>
+                        <a href="/admin/menu"><button>DashBoard</button></a>
                         <a href="/disconnect" class="logOutIconDesk">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
