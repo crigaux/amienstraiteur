@@ -1,14 +1,27 @@
-let openBtn = document.querySelector('.menu');
-let closeBtn = document.querySelector('.close');
+/*************************** **************************/
+/************* Open NavBar in mobile view *************/
+/*************************** **************************/
 
-let overlay = document.querySelector('.overlayMenuBurger');
+// Variables
 
-openBtn.addEventListener('click', () => {
-	overlay.classList.add('open');
-	overlay.classList.remove('close');
-});
+const link = document.querySelector('.openModal');
+const burger = document.querySelector('.containerBurger');
+const ul = document.querySelector('.mobileNavList');
 
-closeBtn.addEventListener('click', () => {
-	overlay.classList.remove('open');
-	overlay.classList.add('close');
-});
+// Function open navbar in mobile view
+
+const openNavMobileView = (e) => {
+    e.preventDefault();
+    burger.classList.toggle('open');
+    ul.classList.toggle('open');
+}
+
+/*************************** **************************/
+/************************  Work ***********************/
+/*************************** **************************/
+
+// On click open navbar in mobile view
+
+link.addEventListener('click', (e) => {
+    openNavMobileView(e);
+})

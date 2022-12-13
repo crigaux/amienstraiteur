@@ -1,0 +1,118 @@
+/*********************** ************************/
+/**************** GLOBAL SETTINGS ***************/
+/*********************** ************************/
+
+:root {
+
+    /* Primary Color */
+    --titleColor: #2E266F;
+
+    /* Base Color */
+    --blockColor: #FFF5EC;
+    --textColor: #000000;
+
+    /* Accent Color */
+    --caseAccentuationColor: #FFF5EC;
+    --backgroundAccentuationColor: #35CD8C;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins/Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins/Semi-bold.ttf');
+    font-weight: 500;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+/*********************** ************************/
+/****************** FONT SETTINGS ***************/
+/*********************** ************************/
+
+h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    
+}
+
+h2 {
+}
+
+h3 {
+}
+
+h4 {
+}
+
+p {
+}
+
+a {
+}
+
+/*********************** ************************/
+/***************** MARGIN PADDING ***************/
+/*********************** ************************/
+
+section {
+    margin: 1.5rem 0rem
+}
+
+/*********************** ************************/
+/****************** FLEX SETTINGS ***************/
+/*********************** ************************/
+
+.flexCenterVertical {
+    display: flex;
+    align-items: center;
+}
+
+.flexCenterHorizontal {
+    display: flex;
+    justify-content: center;
+}
+
+.flexCenterColumn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flexCenterCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexCenterCenterColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexCenterAround {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.flexCenterBetween {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
