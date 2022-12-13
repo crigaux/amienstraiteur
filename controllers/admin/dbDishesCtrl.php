@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../../helpers/SessionFlash.php');
 // ###                    TEST SI L'UTILISATEUR EST UN ADMIN                   ###	
 // ###############################################################################
 
-if ((isset($_SESSION) && $_SESSION['user']->admin != 1) || !isset($_SESSION)) {
+if (!isset($_SESSION['user'])) {
 	header('Location: /');
 	exit;
 }

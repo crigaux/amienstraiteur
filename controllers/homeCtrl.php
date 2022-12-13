@@ -87,7 +87,7 @@
                 try {
                     $pdo = Database::getInstance();
                     $pdo->beginTransaction();
-                    $reservation = new Reservation(0, $datetime, $_SESSION['user']->id);
+                    // $reservation = new Reservation(0, $datetime, $_SESSION['user']->id);
                     
                     $reservation->create();
                     $lastId = $pdo->lastInsertId();

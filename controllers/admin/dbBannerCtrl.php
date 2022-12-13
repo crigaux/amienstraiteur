@@ -4,6 +4,11 @@
 	require_once(__DIR__ . '/../../helpers/testInputs.php');
 	require_once(__DIR__ . '/../../helpers/SessionFlash.php');
 
+	if (!isset($_SESSION['user'])) {
+		header('Location: /');
+		exit;
+	}
+
 	if ($_SERVER['REQUEST_URI'] == '/admin/banner/edit') {
 
 		$target_dir = $_SERVER['DOCUMENT_ROOT'] . "/public/assets/banner/";

@@ -3,19 +3,22 @@
 
 	class Reservation {
 		private int $id;
-		private int $nbOfClients;
+		private string $firstname;
+		private string $lastname;
+		private string $email;
+		private string $phone;
 		private string $datetime;
-		private int $id_users;
 		private string $created_at;
 		private string|NULL $validated_at;
 		private PDO $pdo;
 
-		public function __construct(int $nbOfClients, string $datetime, int $id_users, string|NULL $validated_at = NULL) {
+		public function __construct(string $datetime, string $firstname, string $email, string $lastname, string $phone) {
 			$this->pdo = Database::getInstance();
-			$this->nbOfClients = $nbOfClients;
 			$this->datetime = $datetime;
-			$this->id_users = $id_users;
-			$this->validated_at = $validated_at;
+			$this->firstname = $firstname;
+			$this->email = $email;
+			$this->phone = $phone;
+			$this->lastname = $lastname;
 		}
 
 		public function setId($id) {
@@ -62,13 +65,15 @@
 		 * @return true si la réservation a été créée, @return false sinon
 		 */
 		public function create() {
-			$query = "INSERT INTO `reservations` (`number_of_persons`, `reservation_date`, `id_users`) VALUES (:nbOfClients, :datetime, :id_users);";
+			$query = "INSERT INTO `reservations` (`datetime`, `firstname`, `lastname`, `email`, `phone`) VALUES (:datetime, :firstname, :lastname, :email, :phone);";
 
 			$sth = $this->pdo->prepare($query);
-
-			$sth->bindValue(':nbOfClients', $this->nbOfClients, PDO::PARAM_INT);
+			
 			$sth->bindValue(':datetime', $this->datetime, PDO::PARAM_STR);
-			$sth->bindValue(':id_users', $this->id_users, PDO::PARAM_INT);
+			$sth->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
+			$sth->bindValue(':lastname', $this->lastname, PDO::PARAM_STR);
+			$sth->bindValue(':email', $this->email, PDO::PARAM_STR);
+			$sth->bindValue(':phone', $this->phone, PDO::PARAM_STR);
 
 			if($sth->execute()) {
 				return ($sth->rowCount() == 1) ?  true : false;
@@ -80,14 +85,10 @@
 		 * 
 		 * @return array $reservations
 		 */
-		public static function getAll($order = NULL) {
+		public static function getAll() {
 
 			$pdo = Database::getInstance();
-			if($order == NULL) {
-				$query = "SELECT `reservations`.`id`, `users`.`lastname`, `users`.`phone`, `users`.`email`, `reservations`.`reservation_date`, `reservations`.`number_of_persons`, `reservations`.`validated_at` FROM `reservations` INNER JOIN `users` ON `reservations`.`id_users` = `users`.`id` WHERE `reservations`.`number_of_persons` != 0 AND `reservations`.`reservation_date` > NOW() ORDER BY `reservations`.`reservation_date`;";
-			} else {
-				$query = "SELECT `reservations`.`id`, `users`.`lastname`, `users`.`phone`, `users`.`email`, `reservations`.`reservation_date`, `reservations`.`number_of_persons`, `reservations`.`validated_at` FROM `reservations` INNER JOIN `users` ON `reservations`.`id_users` = `users`.`id` WHERE `reservations`.`number_of_persons` = 0 AND `reservations`.`reservation_date` > NOW() ORDER BY `reservations`.`reservation_date`;";
-			}
+				$query = "SELECT `reservations`.`id`, `reservations`.`lastname`, `reservations`.`phone`, `reservations`.`email`, `reservations`.`datetime`, `reservations`.`validated_at` FROM `reservations` WHERE `reservations`.`datetime` > NOW() ORDER BY `reservations`.`datetime`;";
 
 			$sth = $pdo->prepare($query);
 
@@ -108,7 +109,7 @@
 			
 			$pdo = Database::getInstance();
 
-			$query = "SELECT `reservations`.`id`, `users`.`lastname`, `users`.`firstname`, `users`.`phone`, `users`.`email`, `reservations`.`reservation_date`, `reservations`.`number_of_persons`, `reservations`.`validated_at`, `reservations`.`id_users` FROM `reservations` INNER JOIN `users` ON `reservations`.`id_users` = `users`.`id` WHERE `reservations`.`id` = :id;";
+			$query = "SELECT `reservations`.`id`, `reservations`.`lastname`, `reservations`.`firstname`, `reservations`.`phone`, `reservations`.`email`, `reservations`.`datetime`, `reservations`.`validated_at` FROM `reservations` WHERE `reservations`.`id` = :id;";
 
 			$sth = $pdo->prepare($query);
 
